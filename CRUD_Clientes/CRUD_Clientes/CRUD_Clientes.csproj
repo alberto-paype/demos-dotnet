@@ -44,6 +44,7 @@
     <Reference Include="DevExpress.Printing.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -82,9 +83,27 @@
     <Compile Include="Migrations\202109151817024_create_cliente_usuario.designer.cs">
       <DependentUpon>202109151817024_create_cliente_usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109161243290_AddMenus.cs" />
+    <Compile Include="Migrations\202109161243290_AddMenus.designer.cs">
+      <DependentUpon>202109161243290_AddMenus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109161319582_ChangeMenu.cs" />
+    <Compile Include="Migrations\202109161319582_ChangeMenu.designer.cs">
+      <DependentUpon>202109161319582_ChangeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109161322008_ChangeMenu2.cs" />
+    <Compile Include="Migrations\202109161322008_ChangeMenu2.designer.cs">
+      <DependentUpon>202109161322008_ChangeMenu2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109161331158_ChangeMenu3.cs" />
+    <Compile Include="Migrations\202109161331158_ChangeMenu3.designer.cs">
+      <DependentUpon>202109161331158_ChangeMenu3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationContext.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\SubMenu.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +116,18 @@
     <EmbeddedResource Include="Migrations\202109151817024_create_cliente_usuario.resx">
       <DependentUpon>202109151817024_create_cliente_usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109161243290_AddMenus.resx">
+      <DependentUpon>202109161243290_AddMenus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109161319582_ChangeMenu.resx">
+      <DependentUpon>202109161319582_ChangeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109161322008_ChangeMenu2.resx">
+      <DependentUpon>202109161322008_ChangeMenu2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109161331158_ChangeMenu3.resx">
+      <DependentUpon>202109161331158_ChangeMenu3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,6 +137,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -121,7 +153,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\0404-20_icontopright.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

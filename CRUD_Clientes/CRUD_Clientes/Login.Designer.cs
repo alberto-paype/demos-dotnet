@@ -46,6 +46,7 @@ namespace CRUD_Clientes
             // 
             // edt_login
             // 
+            this.edt_login.EditValue = "a.pimentel";
             this.edt_login.Location = new System.Drawing.Point(72, 90);
             this.edt_login.Name = "edt_login";
             this.edt_login.Size = new System.Drawing.Size(195, 22);
@@ -53,6 +54,7 @@ namespace CRUD_Clientes
             // 
             // edt_senha
             // 
+            this.edt_senha.EditValue = "1234";
             this.edt_senha.Location = new System.Drawing.Point(72, 148);
             this.edt_senha.Name = "edt_senha";
             this.edt_senha.Size = new System.Drawing.Size(195, 22);
