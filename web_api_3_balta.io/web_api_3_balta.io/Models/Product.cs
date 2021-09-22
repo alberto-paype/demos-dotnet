@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using web_api_3_balta.io.Models.Validations.Product;
 
 namespace web_api_3_balta.io.Models
 {
@@ -22,6 +23,7 @@ namespace web_api_3_balta.io.Models
 
         [Required(ErrorMessage = "Preço obrigatório")]
         [Range(1, int.MaxValue, ErrorMessage = "O Preço precisa ser maior que 0.")]
+        [RequireWhenTitle]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Categoria obrigatório")]

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using web_api_3_balta.io.Data;
 using web_api_3_balta.io.Models;
 using System.Security.Cryptography;
+using Microsoft.Extensions.Configuration;
 
 namespace web_api_3_balta.io.Services
 {
@@ -21,9 +22,10 @@ namespace web_api_3_balta.io.Services
         {
 
             //var user = context.usuario.Find(1);
-
+            
             var tokenHandler = new JwtSecurityTokenHandler();
-            var hashSHA256 = TokenService.GenerateHashSHA256("CHAVE_SECRETA");
+            string chave = Startup.StaticConfig.GetSection("API").GetSection("chave").Value;
+            var hashSHA256 = TokenService.GenerateHashSHA256(chave);
             var key = Encoding.ASCII.GetBytes(hashSHA256); //chave secreta
             SecurityKey symetricSecurityKey = new SymmetricSecurityKey(key);
 
@@ -33,7 +35,6 @@ namespace web_api_3_balta.io.Services
                 {
                     new Claim(ClaimTypes.Name, user.Username.ToString()),
                     new Claim(ClaimTypes.Role, user.Role.ToString())
-
                 }),
 
                 Expires = DateTime.UtcNow.AddHours(2),
@@ -43,6 +44,12 @@ namespace web_api_3_balta.io.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
 
+        }
+
+        public static JwtSecurityToken DecodeToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            return tokenHandler.ReadJwtToken(token.Replace("Bearer ", ""));
         }
 
         public static string GenerateHashSHA256(string chave)

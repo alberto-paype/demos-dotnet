@@ -21,8 +21,7 @@ namespace web_api_3_balta.io.Controllers
         [HttpGet]
         public string Index()
         {
-            string smtp = _configuration.GetSection("email_config").GetSection("smtp").Value;
-            return smtp;
+            return _configuration.GetSection("API").GetSection("version").Value;
         }
     }
 }

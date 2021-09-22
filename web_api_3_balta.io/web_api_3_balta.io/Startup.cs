@@ -16,9 +16,11 @@ namespace web_api_3_balta.io
 {
     public class Startup
     {
+        public static IConfiguration StaticConfig { get; private set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            StaticConfig = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -34,9 +36,9 @@ namespace web_api_3_balta.io
             services.AddScoped<DataContextDB, DataContextDB>();            
 
             services.AddCors();
-            var hashSHA256 = TokenService.GenerateHashSHA256("CHAVE_SECRETA");
+            string chaveSecreta = Configuration.GetSection("API").GetSection("chave").Value;
+            var hashSHA256 = TokenService.GenerateHashSHA256(chaveSecreta);
             var key = Encoding.ASCII.GetBytes(hashSHA256);
-
 
             services.AddAuthentication(auth =>
             {
