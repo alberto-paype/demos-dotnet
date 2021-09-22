@@ -66,7 +66,11 @@ namespace web_api_3_balta.io.Controllers
         [HttpGet]
         [Route("admin")]
         [Authorize(Roles = "admin")]
-        public string AdminAuth() => string.Format("ADMIN - {0}", User.Identity.Name);
+        public string AdminAuth() 
+        {
+             return string.Format("ADMIN - {0}", User.Identity.Name);
+        }
+
 
     }
 }

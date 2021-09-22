@@ -19,5 +19,7 @@ namespace web_api_3_balta.io.Data
 
         public DbSet<Usuario> usuario { get; set; }
 
+        public DbSet<Pessoa> pessoa { get; set; }
+
     }
 }

@@ -16,6 +16,7 @@ namespace web_api_3_balta.io.Models
         [Required(ErrorMessage = "Título obrigatório")]
         [MaxLength(60, ErrorMessage = "O título precisa ser de no Máximo 20 caracteres")]
         [MinLength(3, ErrorMessage = "O título precisa ser de no minimo 3 caracteres")]
+
         public string Title { get; set; }
 
         public virtual List<Product> Products { get; set; }
