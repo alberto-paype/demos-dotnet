@@ -42,9 +42,7 @@ namespace web_api_3_balta.io.Controllers
                 return NotFound(new { message = "Usuário ou senha inválidos" });
 
             var token = TokenService.GenerateToken(usuario);
-
-            
-
+          
             return new
             {
                 usuario = usuario.Username,
@@ -56,6 +54,7 @@ namespace web_api_3_balta.io.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
+        
         public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);
 
         [HttpGet]

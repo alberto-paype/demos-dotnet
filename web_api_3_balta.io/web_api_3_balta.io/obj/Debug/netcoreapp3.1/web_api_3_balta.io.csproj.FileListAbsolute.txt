@@ -70,3 +70,8 @@ C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcore
 C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\projetos\demos-dotnet\web_api_3_balta.io\web_api_3_balta.io\obj\Debug\netcoreapp3.1\web_api_3_balta.io.MvcApplicationPartsAssemblyInfo.cs

@@ -22,23 +22,42 @@ namespace web_api_3_balta.io
 
         public Task Invoke(HttpContext httpContext)
         {
-            //httpContext.Request.RouteValues
-
-            var controllerActionDescriptor = httpContext
-                .GetEndpoint()
-                .Metadata
-                .GetMetadata<ControllerActionDescriptor>();
-
-            var controllerName = controllerActionDescriptor.ControllerName;
-            var actionName = controllerActionDescriptor.ActionName;
-
-            string token = httpContext.Request.Headers["Authorization"];
-            if (!string.IsNullOrEmpty(token))
+            try
             {
-                JwtSecurityToken jwt = TokenService.DecodeToken(token);
-            }                      
 
-            return _next(httpContext);
+                if (httpContext.Request.Path.Value == "/favicon.ico")
+                {
+                    // Favicon request, return 404
+                    httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+                    return _next(httpContext);
+                }
+
+                var controllerActionDescriptor = httpContext?
+                                                .GetEndpoint()?
+                                                .Metadata?
+                                                .GetMetadata<ControllerActionDescriptor>();
+
+                var controllerName = controllerActionDescriptor?.ControllerName;
+                var actionName = controllerActionDescriptor?.ActionName;
+
+                string token = httpContext.Request.Headers["Authorization"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    JwtSecurityToken jwt = TokenService.DecodeToken(token);
+
+
+
+
+                }
+
+                return _next(httpContext);
+            } 
+            catch(Exception e)
+            {
+                return _next(httpContext);
+            }
+
+
         }
     }
 

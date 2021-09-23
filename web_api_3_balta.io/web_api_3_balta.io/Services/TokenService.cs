@@ -37,7 +37,7 @@ namespace web_api_3_balta.io.Services
                     new Claim(ClaimTypes.Role, user.Role.ToString())
                 }),
 
-                Expires = DateTime.UtcNow.AddHours(2),
+                Expires = DateTime.UtcNow.AddHours(12),
                 SigningCredentials = new SigningCredentials(symetricSecurityKey, SecurityAlgorithms.HmacSha256Signature)
             };
 

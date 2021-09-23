@@ -11,6 +11,7 @@ using System.Text;
 using web_api_3_balta.io.Data;
 using web_api_3_balta.io.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.OpenApi.Models;
 
 namespace web_api_3_balta.io
 {
@@ -62,6 +63,11 @@ namespace web_api_3_balta.io
             services.AddControllers().AddNewtonsoftJson(
                 options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             );
+
+            services.AddSwaggerGen(swg =>
+            {
+                swg.SwaggerDoc("v1", new OpenApiInfo() { Title = "Paype", Version = "1.0" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,6 +90,14 @@ namespace web_api_3_balta.io
             });
 
             app.UseAuthMiddleware();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(swg =>
+            {
+                swg.RoutePrefix = "/swagger/mapeamento/rotas";
+                swg.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+            });
 
             //app.Use(async (context, next) => { 
             //    await context.Response.WriteAsync("Taoo midleware");

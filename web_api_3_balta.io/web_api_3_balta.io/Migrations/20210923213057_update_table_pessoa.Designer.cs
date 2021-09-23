@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_api_3_balta.io.Data;
 
 namespace web_api_3_balta.io.Migrations
 {
     [DbContext(typeof(DataContextDB))]
-    partial class DataContextDBModelSnapshot : ModelSnapshot
+    [Migration("20210923213057_update_table_pessoa")]
+    partial class update_table_pessoa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

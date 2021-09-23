@@ -21,5 +21,9 @@ namespace web_api_3_balta.io.Data
 
         public DbSet<Pessoa> pessoa { get; set; }
 
+        public DbSet<Empresa> empresa { get; set; }
+
+        public DbSet<EmpresaRegime> empresaRegime { get; set; }
+
     }
 }

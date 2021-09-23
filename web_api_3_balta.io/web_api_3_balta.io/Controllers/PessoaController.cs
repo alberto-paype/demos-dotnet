@@ -27,8 +27,9 @@ namespace web_api_3_balta.io.Controllers
         [HttpPost]
         [Authorize]
         [Route("create")]
-        public async Task<ActionResult<JsonResult>> Create ([FromBody] Pessoa model)
-        {
+        public async Task<JsonResult> Create ([FromBody] Pessoa model)
+        {            
+
             try
             {
                 if (ModelState.IsValid)
@@ -36,16 +37,17 @@ namespace web_api_3_balta.io.Controllers
                     await _context.pessoa.AddAsync(model);
                     await _context.SaveChangesAsync();
                     return new JsonResult(model);
-                } else
+                } 
+                else
                 {
-                    return BadRequest(ModelState);
+                    return new JsonResult(BadRequest(ModelState));
                 }
-
             }
             catch (Exception e)
             {
                 return new JsonResult(e);
             }
+
         }
     }
 }
